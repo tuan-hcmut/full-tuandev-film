@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@types/react-lazy-load-image-component": "^1.5.2"
+  }
+}

@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "style/sky";
+@import "style/title";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+*:focus {
+  outline: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  box-sizing: border-box;
+  @apply bg-color-dark text-color-grey-dark font-inter overflow-x-hidden md:overflow-x-visible;
+}
+
+.flex-icons {
+  @apply flex gap-4 text-2xl items-center font-light hover:text-white transition duration-300;
+}
+
+.flex-col-icons {
+  @apply flex flex-col gap-9 mt-10 ml-4;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  padding: 22px !important;
+  border-radius: 100px !important;
+  // border: 1px solid $color-white;
+  background-color: transparent !important;
+  font-size: 2.5rem !important;
+  color: white !important;
+  transition: all 0.3s !important;
+  &:hover {
+    background-color: #3a3939 !important;
+    color: #2568ef !important;
+  }
+  &::after {
+    font-size: 15px !important;
+  }
+}
+
+.text-resize {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.bg-text-color {
+  background-image: linear-gradient(to right bottom, #a7a5ff, #2568ef);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grid-footer {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  grid-column-gap: 6rem;
+  grid-template-columns: 2fr 2fr;
+  row-gap: 4rem;
+  @media (min-width: 763px) {
+    grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr;
+  }
+
+  &::before {
+    content: "";
+    width: 60%;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: 1px solid #3a3939;
+  }
+}
+
+.lazy-load-image-loaded {
+  width: 100% !important;
+}
+// .border-color-grey {
+//   @apply border-b border-border-grey-dark;
+// }
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #2568ef transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
