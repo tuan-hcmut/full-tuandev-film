@@ -14,7 +14,7 @@ exports.modifyRecent = async (req, res) => {
           [new Date(), req.body.user_id, req.body.film_id],
           (err, results) => {
             if (err) console.log(err);
-            response(res, null, "", 200);
+            response(res, null, null, "", 200);
           }
         );
       } else {
@@ -32,7 +32,7 @@ exports.modifyRecent = async (req, res) => {
           ],
           (err, results) => {
             if (err) console.log(err);
-            response(res, null, "", 200);
+            response(res, null, null, "", 200);
           }
         );
       }
@@ -46,7 +46,7 @@ exports.getList = async (req, res) => {
     req.body.user_id,
     (err, recents) => {
       if (err) console.log(err);
-      response(res, recents, "", 200);
+      response(res, recents, null, "", 200);
     }
   );
 };

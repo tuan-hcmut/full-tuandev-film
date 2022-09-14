@@ -20,7 +20,7 @@ import {
 const Footer: React.FC = () => {
   return (
     <>
-      <div className="  pt-80 grid-footer !text-white">
+      <div className="  pt-80 grid-footer sm:items-center items-start !text-white">
         <div className="flex flex-col gap-8">
           <Logo />
           <p className="text-xl font-white font-light">

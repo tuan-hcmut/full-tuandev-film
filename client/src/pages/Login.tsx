@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import AuthContext from "../context/AuthProvider";
 
-import { loginFromGoogle, login } from "../services/auth";
+import { login } from "../services/auth";
 
 import { BiLockAlt } from "react-icons/bi";
 import { AiOutlineMail } from "react-icons/ai";
@@ -16,7 +16,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
+  const { user, signUpWithGoogle } = useContext(AuthContext);
 
   const [logInData, setLogInData] = useState({
     email: "",
@@ -50,8 +50,8 @@ const Login: React.FC = () => {
     setLogInData({ email: "", password: "" });
   };
 
-  const googleLogin = async () => {
-    loginFromGoogle();
+  const handleGoogleSignIn = async () => {
+    await signUpWithGoogle();
   };
   return (
     <>
@@ -74,32 +74,32 @@ const Login: React.FC = () => {
               <div className="flex gap-10">
                 <div
                   onClick={() => {
-                    googleLogin();
+                    handleGoogleSignIn();
                   }}
                   className="p-6 bg-white rounded-full cursor-pointer "
                 >
                   <FcGoogle className="text-4xl" />
                 </div>
-                <div className="p-6 bg-white rounded-full cursor-pointer text-4xl">
-                  <BsGithub
-                    onClick={() => {
-                      toast.error(
-                        "Login with github is updating, you can login with google instead!!"
-                      );
-                    }}
-                    className=" text-black"
-                  />
+                <div
+                  onClick={() => {
+                    toast.error(
+                      "Login with github is updating, you can login with google instead!!"
+                    );
+                  }}
+                  className="p-6 bg-white rounded-full cursor-pointer text-4xl"
+                >
+                  <BsGithub className=" text-black" />
                 </div>
 
-                <div className="p-6 bg-white rounded-full cursor-pointer text-4xl">
-                  <FaFacebookF
-                    onClick={() => {
-                      toast.error(
-                        "Login with facebook is updating, you can login with google instead!!"
-                      );
-                    }}
-                    className=" text-blue-700"
-                  />
+                <div
+                  onClick={() => {
+                    toast.error(
+                      "Login with facebook is updating, you can login with google instead!!"
+                    );
+                  }}
+                  className="p-6 bg-white rounded-full cursor-pointer text-4xl"
+                >
+                  <FaFacebookF className=" text-blue-700" />
                 </div>
               </div>
             </div>

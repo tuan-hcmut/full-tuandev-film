@@ -47,13 +47,10 @@ exports.settingInfor = async (req, res) => {
     (err, user) => {
       if (err) console.log(err);
 
-      req.session.user.photo = photo;
-      req.session.user.firstname = firstname;
-      req.session.user.lastname = lastname;
-
       return response(
         res,
         { firstname, lastname, photo },
+        null,
         "Update success!!!",
         200
       );
@@ -83,7 +80,13 @@ exports.settingPassword = async (req, res) => {
         }
       );
     } else {
-      return response(res, null, "Password you provided not correct!!!", 400);
+      return response(
+        res,
+        null,
+        null,
+        "Password you provided not correct!!!",
+        400
+      );
     }
   });
 };

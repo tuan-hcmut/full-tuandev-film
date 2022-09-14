@@ -21,6 +21,7 @@
 
 html {
   font-size: 62.5%;
+  @apply overflow-x-hidden md:overflow-x-visible;
 }
 
 body {
@@ -77,7 +78,7 @@ body {
 .grid-footer {
   position: relative;
   display: grid;
-  justify-items: center;
+  // justify-items: center;
   grid-column-gap: 6rem;
   grid-template-columns: 2fr 2fr;
   row-gap: 4rem;

@@ -24,7 +24,7 @@ const NavBarForMob: React.FC<active> = ({ isActive, funcActive }) => {
 
   return (
     <>
-      <div className="md:hidden bg-color-darker px-12 py-8 flex items-center justify-between">
+      <div className="md:hidden bg-color-darker px-12 sm:py-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <AiOutlineMenu
             className={`w-[3rem] h-[3rem] text-white z-[200] ${

@@ -34,7 +34,6 @@ const Recent: React.FC = () => {
   useEffect(() => {
     const getList = async () => {
       const res = await getListRecent({ user_id: user.id });
-      console.log(res.data.data);
       setListRecent(res.data.data);
     };
 

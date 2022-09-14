@@ -15,7 +15,7 @@ exports.modifyBookmark = async (req, res) => {
           [user_id, film_id],
           (err, resutls) => {
             if (err) console.log(err);
-            response(res, null, "Delete success!!", 200);
+            response(res, null, null, "Delete success!!", 200);
           }
         );
       } else {
@@ -24,7 +24,7 @@ exports.modifyBookmark = async (req, res) => {
           [name, user_id, poster_path, vote_average, film_id, type],
           (err, resutls) => {
             if (err) console.log(err);
-            response(res, null, "Add success!!", 200);
+            response(res, null, null, "Add success!!", 200);
           }
         );
       }
@@ -40,7 +40,7 @@ exports.getListBookmarks = async (req, res) => {
     [user_id, type],
     (err, bookmarks) => {
       if (err) console.log(err);
-      response(res, bookmarks, "", 200);
+      response(res, bookmarks, null, "", 200);
     }
   );
 };

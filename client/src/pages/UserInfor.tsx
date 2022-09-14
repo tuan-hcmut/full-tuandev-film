@@ -98,7 +98,6 @@ const UserInfor: React.FC = () => {
       );
     } else {
       const res = await changeAcountPassword(passwordSetting);
-      console.log(res);
       if (res.status === 200) {
         setMessage("success", "Information updated!!");
         window.location.href = "/";
@@ -170,7 +169,6 @@ const UserInfor: React.FC = () => {
                           type={"text"}
                           placeholder="Your name..."
                           id="firstname"
-                          required
                           className=" w-[25rem]  py-6 pl-20 rounded-lg bg-color-filter bg-opacity-80"
                         />
                         <AiOutlineUser className="absolute top-[50%] left-0 !text-4xl translate-y-[-50%] text-white ml-4" />

@@ -57,7 +57,7 @@ const FindFilm: React.FC<typePros> = ({
         </h1>
         <form className=" relative" onSubmit={handleSubmit}>
           <input
-            className={`md:w-[70rem] md:h-[5rem] w-[40rem] h-[3rem] bg-zinc-800 rounded-full ${
+            className={`md:w-[70rem] md:h-[5rem] ms:w-[40rem] w-[36rem] h-[4rem]  bg-zinc-800 rounded-full ${
               searchKeyResults.length !== 0 &&
               "rounded-b-none border-b border-color-grey-light"
             } ${

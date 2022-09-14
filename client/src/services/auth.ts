@@ -1,15 +1,26 @@
 import axios from "axios";
 import { dataSignUp, dataLogin } from "../shared/variables";
 
+function authHeader() {
+  if (localStorage.getItem("token")) {
+    return {
+      Authorization:
+        "Bearer " + JSON.parse(localStorage.getItem("token") || ""),
+    };
+  }
+  return {};
+}
+
 export const signup = async (data: dataSignUp) => {
   try {
     const res = await axios({
-      withCredentials: true,
       method: "POST",
       url: process.env.REACT_APP_SIGN_UP,
       data: data,
     });
 
+    if (res.data.token)
+      localStorage.setItem("token", JSON.stringify(res.data.token));
     return res;
   } catch (e: any) {
     return e.response;
@@ -19,13 +30,27 @@ export const signup = async (data: dataSignUp) => {
 export const login = async (data: dataLogin) => {
   try {
     const res = await axios({
-      withCredentials: true,
-
       method: "POST",
       url: process.env.REACT_APP_LOG_IN,
       data: data,
     });
+    if (res.data.token)
+      localStorage.setItem("token", JSON.stringify(res.data.token));
+    return res;
+  } catch (e: any) {
+    return e.response;
+  }
+};
 
+export const loginWithGoogle = async (user: any) => {
+  try {
+    const res = await axios({
+      method: "POST",
+      url: process.env.REACT_APP_GOOGLE_LOGIN,
+      data: user,
+    });
+    if (res.data.token)
+      localStorage.setItem("token", JSON.stringify(res.data.token));
     return res;
   } catch (e: any) {
     return e.response;
@@ -35,9 +60,11 @@ export const login = async (data: dataLogin) => {
 export const isLogin = async () => {
   try {
     const res = await axios({
-      withCredentials: true,
-      method: "GET",
+      method: "POST",
       url: process.env.REACT_APP_IS_LOG_IN,
+      data: {
+        token: authHeader().Authorization?.split(" ")[1],
+      },
     });
 
     console.log(res.data.data);
@@ -50,13 +77,13 @@ export const isLogin = async () => {
 
 export const logout = async () => {
   try {
-    const res = await axios({
-      withCredentials: true,
-      method: "GET",
-      url: process.env.REACT_APP_LOG_OUT,
-    });
+    // const res = await axios({
+    //   method: "GET",
+    //   url: process.env.REACT_APP_LOG_OUT,
+    // });
 
-    return res;
+    if (localStorage.getItem("token")) localStorage.removeItem("token");
+    return "done";
   } catch (e: any) {
     return e;
   }
@@ -65,7 +92,6 @@ export const logout = async () => {
 export const changeAcountInfor = async (data: any) => {
   try {
     const res = await axios({
-      withCredentials: true,
       method: "PATCH",
       url: process.env.REACT_APP_CHANGE_ACCOUNT_INFOR,
       data,
@@ -80,7 +106,6 @@ export const changeAcountInfor = async (data: any) => {
 export const changeAcountPassword = async (data: any) => {
   try {
     const res = await axios({
-      withCredentials: true,
       method: "PATCH",
       url: process.env.REACT_APP_CHANGE_ACCOUNT_PASSWORD,
       data,
@@ -89,8 +114,4 @@ export const changeAcountPassword = async (data: any) => {
   } catch (e: any) {
     return e;
   }
-};
-
-export const loginFromGoogle = async () => {
-  window.open(`${process.env.REACT_APP_GOOGLE_LOGIN}`, "_self");
 };

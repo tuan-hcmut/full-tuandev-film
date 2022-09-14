@@ -13,7 +13,9 @@ const Logo: React.FC = () => {
           alt="logo"
         />
         <div className="typed-animation">
-          <h1 className="typed-out bg-text-color">Tuan Dev</h1>
+          <h1 className="typed-out bg-text-color sm:text-4xl text-2xl">
+            Tuan Dev
+          </h1>
         </div>
       </a>
     </>

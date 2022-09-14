@@ -13,8 +13,8 @@ const FACEBOOK = {
 };
 const GOOGLE = {
   clientID:
-    "1023072700759-o8re0lfi6rrpp3k0fsm9eol500fnb57q.apps.googleusercontent.com",
-  clientSecret: "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",
+    "1023072700759-oudeerqij12h11v59d1gi58m2jic8m3c.apps.googleusercontent.com",
+  clientSecret: "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",
 };
 const INSTAGRAM = {
   clientID: "0d517fd22d63445181091e63578caf92",

@@ -8,7 +8,7 @@ exports.addComment = async (req, res) => {
     [commentText, userId, filmId],
     (err, result) => {
       if (err) console.log(err);
-      response(res, null, "Add success", 200);
+      response(res, null, null, "Add success", 200);
     }
   );
 };
@@ -20,7 +20,7 @@ exports.getListComments = async (req, res) => {
     "SELECT * FROM comments JOIN users ON comments.user_id = users.id WHERE film_id=? ORDER BY comments.createdAt DESC;",
     filmId,
     (err, results) => {
-      response(res, results, "Get success", 200);
+      response(res, results, null, "Get success", 200);
     }
   );
 };

@@ -103,7 +103,7 @@ const Trending: React.FC<ListsFilmsData> = ({
           <div className="relative px-12">
             <div>
               <Swiper
-                className="absolute w-[100%] h-[18rem] !rounded-lg md:h-[45rem]"
+                className="absolute w-[100%] h-[20rem] !rounded-lg md:h-[45rem]"
                 modules={[Navigation, Autoplay]}
                 navigation
                 slidesPerView={1}
@@ -127,15 +127,15 @@ const Trending: React.FC<ListsFilmsData> = ({
                           </div>
                           <LazyLoadImage
                             effect="opacity"
-                            className="group-hover:brightness-50 duration-300 brightness-90 opacity-70"
+                            className="group-hover:brightness-50 duration-300 brightness-90 opacity-70 rounded-lg"
                             src={`${process.env.REACT_APP_GET_IMG}${el.backdrop_path}`}
                             alt="img"
                           />
-                          <h3 className="absolute right-[3%] top-[2%] sm:text-2xl text-xl  py-2 px-4 bg-color-dark flex items-center gap-3 rounded-full text-yellow-400 border-blue-400 border-2">
+                          <h3 className="absolute right-[3%] top-[2%] sm:text-2xl text-lg  sm:py-2 py-1 sm:px-4 px-3 bg-color-dark flex items-center gap-3 rounded-full text-yellow-400 border-blue-400 border-2">
                             {el.vote_average.toFixed(1)}
                             <AiTwotoneStar />
                           </h3>
-                          <div className="absolute top-[15%] left-[6%] md:w-[43rem] w-[32rem] h-[15rem] md:h-[40rem] overflow-hidden text-ellipsis">
+                          <div className="absolute sm:top-[15%] top-[25%] left-[6%] md:w-[43rem] w-[32rem] h-[15rem] md:h-[40rem] overflow-hidden text-ellipsis">
                             <div className="md:text-2xl text-lg flex items-center gap-4">
                               {getGenreFromData(el.genre_ids).map((el, index) =>
                                 index < 3 && el.name !== "Sci-Fi & Fantasy" ? (
@@ -175,7 +175,7 @@ const Trending: React.FC<ListsFilmsData> = ({
                               </div>
                             </div>
 
-                            <div className="md:text-2xl text-xl text-color-grey-light text-resize pt-2">
+                            <div className="md:text-2xl text-xl text-color-grey-light text-resize pt-2 sm:visible invisible">
                               {el.overview}
                             </div>
                           </div>

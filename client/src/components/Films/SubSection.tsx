@@ -61,14 +61,14 @@ const SubSection: React.FC<DataSubSection> = ({
                   {typeFilms[index].map((film, index1) => {
                     return (
                       <SwiperSlide
-                        className="mr-10 md:!h-[23rem] md:!w-[26.5rem] !h-[12rem] !w-[15rem] text-ellipsis overflow-hidden"
+                        className="mr-10 md:!h-[23rem] md:!w-[26.5rem] !h-[18rem] !w-[15rem] text-ellipsis overflow-hidden"
                         key={index1}
                       >
                         <Link to={`movie/${film.id}`} className="group">
                           <div className="overflow-hidden rounded-lg">
                             <LazyLoadImage
                               effect="opacity"
-                              className=" duration-300 h-[20rem] !w-[100%] brightness-75 group-hover:scale-110"
+                              className=" duration-300 h-[18rem] !w-[100%] brightness-75 group-hover:scale-110 rounded-lg"
                               src={`${process.env.REACT_APP_GET_IMG}${film.backdrop_path}`}
                               alt="img"
                             />
