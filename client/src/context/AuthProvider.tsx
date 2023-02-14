@@ -64,11 +64,14 @@ export const AuthProvider: React.FC<GeneralProps> = ({ children }) => {
     <AuthContext.Provider
       value={{
         signUp,
-        user: isLogedin.user,
+//         user: isLogedin.user,
+           user: null,
+
         signUpWithGoogle,
       }}
     >
-      {isLogedin.isLoged !== undefined && children}
+//       {isLogedin.isLoged !== undefined && children}
+      {isLogedin.isLoged !== children && children}
     </AuthContext.Provider>
   );
 };
